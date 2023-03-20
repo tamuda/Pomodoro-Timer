@@ -1,0 +1,16 @@
+.slider {
+  width: 100%;
+  height: 10px;
+  background-color: "transparent";
+  border: 1px solid rosybrown;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.thumb {
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}

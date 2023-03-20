@@ -1,3 +1,19 @@
+:root{
+  --red: f54e4e
+  --green: 4ef54e
+  --blue: 4e4ef5
+  --yellow: f5f54e
+  --white: ffffff
+  --black: 000000
+  --gray: 30384b
+  --light-gray: 4b4b4b
+  --dark-gray: 1f1f1f
+  --light-red: f54e4e
+  --light-green: 4ef54e
+  --light-blue: 4e4ef5
+  --light-yellow: f5f54e
+}
+
 body {
   background-color: #30384b;
   font-family: "Roboto", sans-serif;
@@ -31,4 +47,10 @@ button:hover {
 }
 button:active {
   color: white;
+}
+label {
+  display: block;
+  font-size: 1rem;
+  color: rgb(219, 217, 217);
+  margin: 2rem;
 }
