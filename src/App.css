@@ -1,0 +1,34 @@
+body {
+  background-color: #30384b;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+button {
+  background-color: #30384b;
+
+  color: rgb(219, 217, 217);
+  font-size: 1.5rem;
+  border: none;
+  display: inline-block;
+  margin: 2rem;
+  cursor: pointer;
+  width: 50px;
+}
+button:hover {
+  color: burlywood;
+}
+button:active {
+  color: white;
+}
