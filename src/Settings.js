@@ -7,6 +7,11 @@ import SaveButton from "./SaveButton";
 function Settings() {
   const settingsInfo = useContext(SettingsContext);
 
+  console.log(
+    "Round minutes in Settings component:",
+    settingsInfo.roundMinutes
+  );
+
   return (
     <card
       style={{
@@ -19,9 +24,9 @@ function Settings() {
       <div>
         <label>Round Time: {settingsInfo.roundMinutes}:00</label>
         <ReactSlider
-          classname={"slider"}
-          thumbClassname={"thumb"}
-          trackClassName={"track"}
+          className="slider" // corrected prop name
+          thumbClassName="thumb"
+          trackClassName="track"
           value={settingsInfo.roundMinutes}
           min={1}
           max={15}
@@ -29,9 +34,9 @@ function Settings() {
         />
         <label>Break: {settingsInfo.breakMinutes}:00</label>
         <ReactSlider
-          classname={"slider green"}
-          thumbClassname={"thumb"}
-          trackClassName={"track"}
+          className="slider green" // corrected prop name
+          thumbClassName="thumb"
+          trackClassName="track"
           value={settingsInfo.breakMinutes}
           onChange={(newValue) => settingsInfo.setBreakMinutes(newValue)}
           min={1}
@@ -43,4 +48,5 @@ function Settings() {
     </card>
   );
 }
+
 export default Settings;

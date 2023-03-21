@@ -14,17 +14,17 @@ function App() {
   const settingsInfo = useContext(SettingsContext);
 
   return (
-    <main>
-      <SettingsContext.Provider
-        value={{
-          showSettings,
-          setShowSettings,
-          roundMinutes,
-          breakMinutes,
-          setRoundMinutes,
-          setBreakMinutes,
-        }}
-      >
+    <SettingsContext.Provider
+      value={{
+        showSettings,
+        setShowSettings,
+        roundMinutes,
+        breakMinutes,
+        setRoundMinutes,
+        setBreakMinutes,
+      }}
+    >
+      <main>
         <SettingsButton
           onClick={() => {
             setShowSettings(true);
@@ -32,12 +32,10 @@ function App() {
           style={{ position: "absolute", top: 0, right: 0 }}
         />
         {showSettings ? <Settings /> : null}
-      </SettingsContext.Provider>
-
-      <h1>Out of the box</h1>
-      <Timer></Timer>
-    </main>
+        <h1>Out of the box</h1>
+        <Timer />
+      </main>
+    </SettingsContext.Provider>
   );
 }
-
 export default App;
