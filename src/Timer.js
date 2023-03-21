@@ -11,8 +11,8 @@ function Timer() {
   return (
     <div>
       <CircularProgressbar
-        value={60}
-        text={`60%`}
+        value={70}
+        text={`4min`}
         styles={buildStyles({
           textColor: "white",
           pathColor: red,

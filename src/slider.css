@@ -14,3 +14,9 @@
   height: 10px;
   border-radius: 5px;
 }
+.slider.green {
+  border: 1px solid rgb(143, 188, 148);
+}
+.slider.green .thumb {
+  background-color: rgb(143, 188, 148);
+}
