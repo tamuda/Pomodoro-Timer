@@ -41,9 +41,10 @@ function App() {
           style={{
             width: "100%",
             position: "absolute",
-            bottom: "-18%",
+            bottom: "-30%",
             left: "0%",
             zIndex: 1,
+            marginTop: "50px",
           }}
         />
       </main>
