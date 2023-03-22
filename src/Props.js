@@ -10,15 +10,7 @@ function Props() {
           left: "10%",
         }}
       />
-      <img
-        src={"./timer_bg-03.png"}
-        style={{
-          width: "5%",
-          position: "absolute",
-          top: "1%",
-          left: "50%",
-        }}
-      />
+
       <img
         src={"./timer_bg-05.png"}
         style={{
