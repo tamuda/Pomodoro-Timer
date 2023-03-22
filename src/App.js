@@ -36,12 +36,13 @@ function App() {
         <div style={{ zIndex: 2 }}>
           <Timer />
         </div>
+        <span />
         <img
           src={"./timer_bg-01.png"}
           style={{
             width: "100%",
             position: "absolute",
-            bottom: "-30%",
+            bottom: "-40%",
             left: "0%",
             zIndex: 1,
             marginTop: "50px",
