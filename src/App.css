@@ -15,10 +15,10 @@
 }
 
 body {
-  background-color: #30384b;
+  background-color: whitesmoke;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  color: whitesmoke;
+  color: black;
   margin: 0;
   padding: 0;
 }
@@ -31,7 +31,7 @@ main {
   height: 100vh;
 }
 card{
-  background-color: #30384b;
+  background-color: whitesmoke;
   border-radius: 10px;
   padding: 20px;
   width: 300px;
@@ -44,9 +44,9 @@ card{
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 button {
-  background-color: #30384b;
+  background-color: whitesmoke;
 
-  color: rgb(219, 217, 217);
+  color: grey;
   font-size: 1.5rem;
   border: none;
   display: flex;
@@ -57,7 +57,7 @@ button {
   width: 50px;
 }
 button:hover {
-  color: burlywood;
+  color: black;
 }
 button:active {
   color: white;
@@ -69,7 +69,7 @@ button.with-text{
   align-items: center;
   width: auto;
   padding: 20px, 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 35px;
   border-radius: 10px;
   border: 1px solid rgb(219, 217, 217);
@@ -81,11 +81,11 @@ button.with-text svg{
   float: right;
  
   
-  margin-right: 5px;
+
 }
 button.with-text:hover{
-  color: burlywood;
-  border: 1px solid burlywood;
+  color: black;
+  border: 1px solid black;
  
 }
 
@@ -96,7 +96,7 @@ color: red;
 label {
   display: block;
   font-size: 1rem;
-  color: rgb(219, 217, 217);
+  color: black;
   margin-top: 3rem;
   margin-bottom: 1rem;
 }

@@ -33,7 +33,19 @@ function App() {
         />
         {showSettings ? <Settings /> : null}
         <h1>Out of the box</h1>
-        <Timer />
+        <div style={{ zIndex: 2 }}>
+          <Timer />
+        </div>
+        <img
+          src={"./timer_bg-01.png"}
+          style={{
+            width: "100%",
+            position: "absolute",
+            bottom: "-18%",
+            left: "0%",
+            zIndex: 1,
+          }}
+        />
       </main>
     </SettingsContext.Provider>
   );

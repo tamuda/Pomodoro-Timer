@@ -4,6 +4,7 @@ import PlayButton from "./PlayButton";
 import PauseButton from "./PauseButton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
+import Props from "./Props";
 
 const red = "#f54e4e";
 const green = "#4ecf54";
@@ -51,7 +52,7 @@ function Timer() {
       }
 
       tick();
-    }, 1000);
+    }, 50);
     return () => clearInterval(interval);
   }, [settingsInfo.roundMinutes, settingsInfo.breakMinutes]);
 
@@ -63,18 +64,53 @@ function Timer() {
   const minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
   if (seconds < 10) seconds = "0" + seconds;
+  const timeLeft = minutes + ":" + seconds;
 
   return (
     <div>
-      <CircularProgressbar
-        value={percentage}
-        text={minutes + ":" + seconds}
-        styles={buildStyles({
-          textColor: "white",
-          pathColor: mode === "round" ? red : green,
-          trailColor: "transparent",
-        })}
-      />
+      <div style={{ position: "relative", width: "400px", height: "400px" }}>
+        <img
+          src={"./cosmo-05.png"}
+          style={{
+            width: "85%",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 0,
+          }}
+        />
+        <h2
+          style={{
+            width: "85%",
+            position: "absolute",
+            top: "16%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 0,
+          }}
+        >
+          {timeLeft}
+        </h2>
+
+        <div
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            zIndex: 3,
+          }}
+        >
+          <CircularProgressbar
+            value={percentage}
+            styles={buildStyles({
+              textColor: "white",
+              pathColor: mode === "round" ? red : green,
+              trailColor: "transparent",
+            })}
+          />
+        </div>
+      </div>
 
       <h2 style={{ width: "100%", textAlign: "center", marginTop: "50px" }}>
         {message}
@@ -82,13 +118,14 @@ function Timer() {
 
       <div
         style={{
-          marginTop: "20px",
-          width: "300px",
+          marginTop: "10px",
+          width: "100%",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
+          zIndex: 4,
         }}
       >
         {isPaused ? (
@@ -106,6 +143,9 @@ function Timer() {
             }}
           />
         )}
+      </div>
+      <div style={{ relative: "absolute", zIndex: 0 }}>
+        <Props style={{ position: "absolute", zIndex: 0 }} />
       </div>
     </div>
   );

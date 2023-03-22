@@ -19,6 +19,7 @@ function Settings() {
         top: 0,
         right: 0,
         textAlign: "left",
+        zIndex: 3,
       }}
     >
       <div>
