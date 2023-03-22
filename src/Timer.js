@@ -52,7 +52,7 @@ function Timer() {
       }
 
       tick();
-    }, 50);
+    }, 1000);
     return () => clearInterval(interval);
   }, [settingsInfo.roundMinutes, settingsInfo.breakMinutes]);
 
