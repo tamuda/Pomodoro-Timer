@@ -5,6 +5,7 @@ import PauseButton from "./PauseButton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
 import Props from "./Props";
+const bellSound = require("./bell.wav");
 
 const red = "#f54e4e";
 const green = "#4ecf54";
@@ -34,6 +35,12 @@ function Timer() {
           : settingsInfo.breakMinutes) * 60;
 
       setMode(nextMode);
+      //check if next mode is break
+      if (nextMode === "break") {
+        const audioEl = document.querySelector(".audio-element");
+        audioEl.play().catch((e) => console.error("Error playing audio:", e));
+      }
+
       modeRef.current = nextMode;
 
       setSecondsLeft(nextSeconds);
@@ -68,6 +75,9 @@ function Timer() {
 
   return (
     <div>
+      <audio className="audio-element">
+        <source src={bellSound}></source>
+      </audio>
       <div style={{ position: "relative", width: "400px", height: "400px" }}>
         <img
           src={"./cosmo-05.png"}

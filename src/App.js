@@ -9,8 +9,8 @@ import { useContext } from "react";
 
 function App() {
   const [showSettings, setShowSettings] = useState(false);
-  const [roundMinutes, setRoundMinutes] = useState(7);
-  const [breakMinutes, setBreakMinutes] = useState(1);
+  const [roundMinutes, setRoundMinutes] = useState(5);
+  const [breakMinutes, setBreakMinutes] = useState(0.5);
   const settingsInfo = useContext(SettingsContext);
 
   return (
@@ -32,7 +32,7 @@ function App() {
           style={{ position: "absolute", top: 0, right: 0 }}
         />
         {showSettings ? <Settings /> : null}
-        <h1>Out of the box</h1>
+        <h1>Venture Vibes</h1>
         <div style={{ zIndex: 2 }}>
           <Timer />
         </div>
