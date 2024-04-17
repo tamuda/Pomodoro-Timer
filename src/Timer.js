@@ -16,10 +16,41 @@ function Timer() {
 
   const [isPaused, setIsPaused] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(0);
+  const [roundMessage, setRoundMessage] = useState("Happy chatting!");
+  const [breakMessage, setBreakMessage] = useState("Time to switch tables!");
+  const [messageModal, setMessageModal] = useState(false);
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
-  const message = mode === "round" ? "Happy chatting" : "Time to switch tables";
+  const message = mode === "round" ? roundMessage : breakMessage;
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" || e.key === "Enter") {
+        setMessageModal(false);
+      }
+    };
+
+    const handleClickOutside = (e) => {
+      const messageElement = document.getElementById("messageModal");
+
+      if (
+        messageModal &&
+        messageElement &&
+        !messageElement.contains(e.target)
+      ) {
+        setMessageModal(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [messageModal]);
 
   function tick() {
     secondsLeftRef.current--;
@@ -78,39 +109,16 @@ function Timer() {
       <audio className="audio-element">
         <source src={bellSound}></source>
       </audio>
-      <div style={{ position: "relative", width: "400px", height: "400px" }}>
+      <div className="relative w-[400px] h-[400px]">
         <img
           src={"./cosmo-05.png"}
-          style={{
-            width: "85%",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 0,
-          }}
+          className="absolute w-5/6 scale-105 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 font-mono"
         />
-        <h2
-          style={{
-            width: "85%",
-            position: "absolute",
-            top: "16%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 0,
-          }}
-        >
+        <h2 className="absolute w-5/6 top-[5.2rem] text-2xl font-bold left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
           {timeLeft}
         </h2>
 
-        <div
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            zIndex: 3,
-          }}
-        >
+        <div className="absolute w-full h-full z-10">
           <CircularProgressbar
             value={percentage}
             styles={buildStyles({
@@ -122,22 +130,40 @@ function Timer() {
         </div>
       </div>
 
-      <h2 style={{ width: "100%", textAlign: "center", marginTop: "50px" }}>
-        {message}
-      </h2>
+      <div className="pt-8" id="messageModal">
+        {messageModal ? (
+          <form
+            className="flex gap-2 text-xl text-center text-gray-600 "
+            id="messageModal"
+          >
+            <input
+              type="text"
+              autoFocus
+              value={roundMessage}
+              onChange={(e) => setRoundMessage(e.target.value)}
+              className="p-2 border text-center focus:outline-none rounded-lg"
+            />
+            <input
+              type="text"
+              value={breakMessage}
+              onChange={(e) => setBreakMessage(e.target.value)}
+              className="p-2 border text-center rounded-lg"
+            />
+          </form>
+        ) : (
+          <h2
+            onClick={(e) => {
+              e.stopPropagation();
+              setMessageModal(true);
+            }}
+            className="text-3xl cursor-pointer hover:text-neutral-400 "
+          >
+            {message}
+          </h2>
+        )}
+      </div>
 
-      <div
-        style={{
-          marginTop: "10px",
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          zIndex: 4,
-        }}
-      >
+      <div className="flex justify-center pt-1">
         {isPaused ? (
           <PlayButton
             onClick={() => {

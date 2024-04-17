@@ -44,7 +44,10 @@ function Settings() {
           max={5}
         />
 
-        <SaveButton onClick={() => settingsInfo.setShowSettings(false)} />
+        <SaveButton
+          onClick={() => settingsInfo.setShowSettings(false)}
+          className="px-2 py-1 text-sm border border-black rounded-lg"
+        />
       </div>
     </card>
   );
