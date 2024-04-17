@@ -147,7 +147,7 @@ function Timer() {
               type="text"
               value={breakMessage}
               onChange={(e) => setBreakMessage(e.target.value)}
-              className="p-2 border text-center rounded-lg"
+              className="p-2 border text-center rounded-lg focus:outline-none"
             />
           </form>
         ) : (
@@ -156,7 +156,7 @@ function Timer() {
               e.stopPropagation();
               setMessageModal(true);
             }}
-            className="text-3xl cursor-pointer hover:text-neutral-400 "
+            className="text-3xl text-center cursor-pointer hover:text-neutral-400 "
           >
             {message}
           </h2>
@@ -173,6 +173,7 @@ function Timer() {
           />
         ) : (
           <PauseButton
+            className="justify-center"
             onClick={() => {
               setIsPaused(true);
               isPausedRef.current = true;
@@ -180,7 +181,7 @@ function Timer() {
           />
         )}
       </div>
-      <div style={{ relative: "absolute", zIndex: 0 }}>
+      <div className="justify-center">
         <Props style={{ position: "absolute", zIndex: 0 }} />
       </div>
     </div>
